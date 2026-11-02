@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "neatlisting",
+  "description": "NeatListing: manage Google Business Profiles (Google My Business) from Claude Code.",
+  "owner": { "name": "Gronda LLC", "email": "hello@neatlisting.com", "url": "https://neatlisting.com" },
+  "plugins": [
+    {
+      "name": "neatlisting",
+      "source": "./plugin",
+      "description": "Manage Google Business Profiles (Google My Business): hours, posts, photos, review replies and performance, with owner rules and approvals.",
+      "category": "business",
+      "tags": ["google business profile", "google my business", "gmb", "local seo", "reviews"]
+    }
+  ]
+}

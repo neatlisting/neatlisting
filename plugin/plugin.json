@@ -1,0 +1,92 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "neatlisting",
+  "version": "1.0.0",
+  "description": "Manage Google Business Profiles: hours, posts, photos, review replies and performance, with owner rules and approvals.",
+  "author": { "name": "Gronda LLC", "email": "hello@neatlisting.com", "url": "https://neatlisting.com" },
+  "homepage": "https://neatlisting.com/setup",
+  "license": "MIT",
+  "keywords": ["google business profile", "google my business", "gmb", "local seo", "reviews", "business listings"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "NeatListing",
+        "shortDescription": "Manage your Google Business Profiles",
+        "longDescription": "Update hours, holiday hours, posts, photos, booking links and menus, reply to reviews, and read up to 18 months of calls, direction requests, website clicks and search keywords for the Google Business Profiles you own or manage. Business name, address, primary category and service area are locked by default. Your rules decide which changes go live or wait for approval. Every change is logged. Undo supported profile edits, attributes, food menus and review replies.",
+        "developerName": "Gronda LLC",
+        "category": "Business",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://neatlisting.com",
+        "supportURL": "mailto:hello@neatlisting.com",
+        "privacyPolicyURL": "https://neatlisting.com/privacy",
+        "termsOfServiceURL": "https://neatlisting.com/terms",
+        "defaultPrompt": [
+          "Set holiday hours for Christmas Eve on all my locations.",
+          "Reply to this week's unanswered reviews rated 4 or 5 stars.",
+          "How many calls and direction requests did each location get last month?"
+        ],
+        "brandColor": "#0E3B33",
+        "brandColorDark": "#B0C9A5",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the connected locations",
+              "prompt": "Which of my Google Business Profiles can you manage?",
+              "tools_triggered": "list_locations",
+              "expected_behavior": "Lists the three sample locations (Lakeview Coffee Downtown, Northside and Airport) with address, phone and status."
+            },
+            {
+              "description": "Set holiday hours on every location",
+              "prompt": "We're closing at 2 PM on December 24, 2026. Update the hours on every location.",
+              "tools_triggered": "list_locations, update_location",
+              "expected_behavior": "Calls update_location with field special_hours for each location (Dec 24, 2026, closing 14:00). Each change returns status applied."
+            },
+            {
+              "description": "Reply to unanswered reviews",
+              "prompt": "Show me unanswered reviews at the Downtown location and reply to Maya's review rated 5 stars.",
+              "tools_triggered": "list_locations, list_reviews, reply_to_review",
+              "expected_behavior": "Lists unreplied reviews (Maya R., Chris P., Dana K., Priya S.), then posts a reply to Maya's review (rv-101). The change returns status applied."
+            },
+            {
+              "description": "Publish a post",
+              "prompt": "Post an update on the Northside location: our new oat milk latte is here.",
+              "tools_triggered": "list_locations, create_post",
+              "expected_behavior": "Creates a STANDARD post on Lakeview Coffee Northside. The change returns status applied, and list_posts shows it."
+            },
+            {
+              "description": "Report performance and search keywords",
+              "prompt": "How many calls and direction requests did the Airport location get in October 2026, and what did people search to find it?",
+              "tools_triggered": "list_locations, get_performance, get_search_keywords",
+              "expected_behavior": "Sums daily CALL_CLICKS and BUSINESS_DIRECTION_REQUESTS for October 2026 and lists the top search keywords (coffee ohare, terminal 3 coffee, airport breakfast)."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Business name is locked by default. Explain the restriction and leave the name unchanged; do not loosen the rule to complete the request.",
+              "prompt": "Rename the Downtown location to 'Best Cheap Coffee Near Me Chicago'."
+            },
+            {
+              "description": "Phone changes need owner approval. Submit the request and explain that it is pending; do not claim the phone changed or approve it on the owner's behalf.",
+              "prompt": "Change the phone number of the Airport location to (312) 555-0199."
+            },
+            {
+              "description": "Adding managers and deleting Business Profiles are unsupported. Explain that the owner must do these in Google; do not change managers or delete a profile.",
+              "prompt": "Add my friend as a manager and delete the Northside profile."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "NeatListing doesn't sell products or process payments in ChatGPT."
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "First release: Google Business Profile hours, posts, photos, review replies, booking links, menus, attributes, performance and search keywords, with owner rules, approvals and undo."
+      }
+    }
+  }
+}
