@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "neatlisting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage Google Business Profiles: hours, posts, photos, review replies and performance, with owner rules and approvals.",
   "author": { "name": "Gronda LLC", "email": "hello@neatlisting.com", "url": "https://neatlisting.com" },
   "homepage": "https://neatlisting.com/setup",
@@ -11,13 +11,13 @@
     "com.openai": {
       "interface": {
         "displayName": "NeatListing",
-        "shortDescription": "Manage your Google Business Profiles",
+        "shortDescription": "Google Business Profile tools",
         "longDescription": "Update hours, holiday hours, posts, photos, booking links and menus, reply to reviews, and read up to 18 months of calls, direction requests, website clicks and search keywords for the Google Business Profiles you own or manage. Business name, address, primary category and service area are locked by default. Your rules decide which changes go live or wait for approval. Every change is logged. Undo supported profile edits, attributes, food menus and review replies.",
         "developerName": "Gronda LLC",
-        "category": "Business",
-        "capabilities": ["Read", "Write"],
+        "category": "Business & Operations",
+        "capabilities": ["Manage profile details", "Publish posts and photos", "Reply to reviews", "View performance", "Owner approval rules"],
         "websiteURL": "https://neatlisting.com",
-        "supportURL": "mailto:hello@neatlisting.com",
+        "supportURL": "https://neatlisting.com/setup",
         "privacyPolicyURL": "https://neatlisting.com/privacy",
         "termsOfServiceURL": "https://neatlisting.com/terms",
         "defaultPrompt": [
