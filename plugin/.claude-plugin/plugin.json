@@ -1,7 +1,7 @@
 {
   "name": "neatlisting",
   "displayName": "NeatListing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Manage Google Business Profiles (Google My Business): hours, posts, photos, review replies and performance, with owner rules and approvals.",
   "author": { "name": "Gronda LLC", "email": "hello@neatlisting.com", "url": "https://neatlisting.com" },
   "homepage": "https://neatlisting.com/setup",

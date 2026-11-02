@@ -14,7 +14,7 @@ NeatListing is a hosted MCP server at `https://app.neatlisting.com/mcp`. The fir
 - Calls, direction requests, website clicks and views for up to 18 months, plus search keywords
 - Your own change history, with undo
 
-Your business name, address, primary category and service area are locked by default. Changes you choose (by default website, phone, booking links and verification) wait for your approval in NeatListing, and every change is logged. Profile edits, attributes, food menus and review replies support undo.
+Your business name, address, primary category and service area are locked by default. Changes you choose (by default website, phone, booking links and verification) wait for your approval: say yes to your assistant, or approve them in NeatListing. For high-risk changes your assistant first reads you a warning. Every change is logged. Profile edits, attributes, food menus and review replies support undo.
 
 ## What it sends and stores
 

@@ -71,6 +71,7 @@ The first time your assistant uses NeatListing, it opens a sign-in page. Sign in
 | Performance | `get_performance` (calls, direction requests, website clicks, bookings and views for up to 18 months), `get_search_keywords` |
 | Verification | `get_verification_status`, `start_verification`, `complete_verification` |
 | Its own changes | `list_my_changes`, `get_change`, `undo_my_change` |
+| Approvals | `list_pending_changes`, `approve_change`, `reject_change` (the owner says yes or no in the chat) |
 | Orientation and setup | `get_my_permissions`, `list_locations`, `get_location`, `get_google_updates`, `list_admins`, `preview_change`, `get_setup_status`, `finish_setup`, `set_location_access`, `get_rules`, `update_rules` |
 
 Things to ask once you're connected:
@@ -84,11 +85,11 @@ Things to ask once you're connected:
 ## Safety
 
 - The business name, address, primary category and service area are locked by default.
-- Website and phone changes wait for the owner's approval by default. Owners choose what else needs approval.
+- Website and phone changes wait for the owner's approval by default. Owners choose what else needs approval, and can approve by telling their assistant or in the NeatListing dashboard.
 - Pace limits and keyword-stuffing checks guard against edits that can get a profile suspended.
 - Agents can't add or remove managers, transfer profiles or delete them.
 - Each assistant sees only the locations the owner allowed, and every change is logged. Profile edits, attributes, menus and review replies can be undone.
-- Before an assistant can let a high-risk field go live, it has to read the owner a warning and pass along the owner's own words of approval.
+- Before an assistant can let a high-risk field go live or approve a high-risk change, it has to read the owner a warning and pass along the owner's own words of approval. Those words are kept in the owner's activity log.
 
 ## How it works
 
@@ -110,7 +111,7 @@ Yes. Agencies and multi-location businesses can let an assistant work on all of 
 
 ### Can my assistant change my business name or address?
 
-Not by default. Those fields are locked because changing them can trigger a re-verification or a suspension.
+Not by default. Those fields are locked because changing them can trigger a re-verification or a suspension. If you want your assistant to handle them anyway, tell it. It will read you a warning first, and it can only open them up with your own words of approval.
 
 ### What happens to my data?
 
