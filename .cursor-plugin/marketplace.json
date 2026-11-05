@@ -1,0 +1,8 @@
+{
+  "name": "neatlisting",
+  "owner": { "name": "Gronda LLC", "email": "hello@neatlisting.com" },
+  "metadata": { "description": "NeatListing: manage Google Business Profiles (Google My Business) from Cursor." },
+  "plugins": [
+    { "name": "neatlisting", "source": "plugin", "description": "Manage Google Business Profiles (Google My Business): hours, posts, photos, review replies and performance, with one tool per profile setting." }
+  ]
+}

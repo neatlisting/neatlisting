@@ -6,7 +6,7 @@ NeatListing lets AI assistants manage Google Business Profiles (formerly Google 
 - Website and setup guide: [neatlisting.com/setup](https://neatlisting.com/setup)
 - Official MCP registry: `com.neatlisting/neatlisting`
 
-This repository holds the NeatListing plugin for Claude Code, Claude and Codex, plus the server's registry manifest. The server itself is hosted by NeatListing, so there is nothing to run.
+This repository holds the NeatListing plugin for Claude Code, Claude, Codex, Cursor and Grok Build, plus the server's registry manifest. The server itself is hosted by NeatListing, so there is nothing to run.
 
 ## Install
 
@@ -120,7 +120,8 @@ See the [privacy policy](https://neatlisting.com/privacy). NeatListing stores th
 ## Repository layout
 
 - `.claude-plugin/marketplace.json`: Claude Code marketplace
-- `plugin/`: the plugin (Claude Code manifest in `.claude-plugin/`, Agent Plugins manifest for ChatGPT and Codex in `plugin.json`, the MCP server config and the `google-business-profile` skill)
+- `.cursor-plugin/marketplace.json`: Cursor marketplace
+- `plugin/`: the plugin (Claude Code manifest in `.claude-plugin/`, Cursor manifest in `.cursor-plugin/`, Grok Build manifest in `.grok-plugin/`, Agent Plugins manifest for ChatGPT and Codex in `plugin.json`, the MCP server config and the `google-business-profile` skill)
 - `server.json`: the official MCP registry manifest
 
 ## Support

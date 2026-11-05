@@ -1,0 +1,16 @@
+{
+  "name": "neatlisting",
+  "displayName": "NeatListing",
+  "version": "1.0.3",
+  "description": "Manage Google Business Profiles (Google My Business) from Cursor: hours, holiday hours, posts, photos, review replies, booking links, menus and performance, with one tool per profile setting. Hosted MCP server; sign in with Google on first use, no API key.",
+  "author": { "name": "Gronda LLC", "email": "hello@neatlisting.com" },
+  "homepage": "https://neatlisting.com/setup",
+  "repository": "https://github.com/neatlisting/neatlisting",
+  "license": "MIT",
+  "keywords": ["neatlisting", "google business profile", "google my business", "gmb", "local seo", "reviews"],
+  "logo": "assets/icon.png",
+  "skills": "./skills/",
+  "mcpServers": {
+    "neatlisting": { "url": "https://app.neatlisting.com/mcp" }
+  }
+}
