@@ -43,8 +43,8 @@
             {
               "description": "Set holiday hours on every location",
               "prompt": "We're closing at 2 PM on December 24, 2026. Update the hours on every location.",
-              "tools_triggered": "list_locations, update_location",
-              "expected_behavior": "Calls update_location with field special_hours for each location (Dec 24, 2026, closing 14:00). Each change returns status applied."
+              "tools_triggered": "list_locations, update_special_hours",
+              "expected_behavior": "Calls update_special_hours for each location (Dec 24, 2026, closing 14:00). Each change returns status applied."
             },
             {
               "description": "Reply to unanswered reviews",

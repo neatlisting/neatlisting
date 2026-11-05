@@ -7,7 +7,7 @@
     {
       "name": "neatlisting",
       "source": "./plugin",
-      "description": "Manage Google Business Profiles (Google My Business): hours, posts, photos, review replies and performance, with owner rules and approvals.",
+      "description": "Manage Google Business Profiles (Google My Business): hours, posts, photos, review replies and performance, with one tool per profile setting.",
       "category": "business",
       "tags": ["google business profile", "google my business", "gmb", "local seo", "reviews"]
     }
