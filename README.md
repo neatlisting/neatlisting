@@ -62,7 +62,7 @@ The first time your assistant uses NeatListing, it opens a sign-in page. Sign in
 
 | Area | Tools |
 |---|---|
-| Profile | `update_location`: hours, holiday and special hours, more hours, description, services, labels, open status, website, phone, secondary categories. `get_attributes`, `update_attributes`, `search_categories` |
+| Profile (one tool per setting) | `update_regular_hours`, `update_special_hours`, `update_more_hours`, `update_description`, `update_services`, `update_labels`, `update_open_status`, `update_website`, `update_phone`, `update_additional_phones`, `update_business_name`, `update_address`, `update_primary_category`, `update_secondary_categories`, `update_service_area`. Also `get_attributes`, `update_attributes`, `search_categories` |
 | Posts, offers and events | `list_posts`, `create_post`, `update_post`, `delete_post` |
 | Reviews | `list_reviews`, `reply_to_review`, `delete_review_reply` |
 | Photos | `list_photos`, `add_photo`, `delete_photo` |
@@ -71,8 +71,8 @@ The first time your assistant uses NeatListing, it opens a sign-in page. Sign in
 | Performance | `get_performance` (calls, direction requests, website clicks, bookings and views for up to 18 months), `get_search_keywords` |
 | Verification | `get_verification_status`, `start_verification`, `complete_verification` |
 | Its own changes | `list_my_changes`, `get_change`, `undo_my_change` |
-| Approvals | `list_pending_changes`, `approve_change`, `reject_change` (the owner says yes or no in the chat) |
-| Orientation and setup | `get_my_permissions`, `list_locations`, `get_location`, `get_google_updates`, `list_admins`, `preview_change`, `get_setup_status`, `finish_setup`, `set_location_access`, `get_rules`, `update_rules` |
+| Older waiting changes | `list_pending_changes`, `approve_change`, `reject_change` (the owner says yes or no in the chat) |
+| Orientation and setup | `get_my_permissions`, `list_locations`, `get_location`, `get_google_updates`, `list_admins`, `preview_change`, `get_setup_status`, `finish_setup`, `set_location_access` |
 
 Things to ask once you're connected:
 
@@ -84,12 +84,12 @@ Things to ask once you're connected:
 
 ## Safety
 
-- The business name, address, primary category and service area are locked by default.
-- Website and phone changes wait for the owner's approval by default. Owners choose what else needs approval, and can approve by telling their assistant or in the NeatListing dashboard.
+- Each profile setting has its own tool, so you decide in your AI app which ones need your OK (in Claude: Always allow, Needs approval or Blocked, per tool; ChatGPT and Codex have the same kind of per-tool approval).
+- When you connect, you choose which locations the assistant can reach, or give it read-only access.
+- High-risk fields (business name, address, categories, phones, website, service area, open/closed status) can get a profile flagged or suspended by Google, so the assistant tells you that and checks before changing one.
 - Pace limits and keyword-stuffing checks guard against edits that can get a profile suspended.
 - Agents can't add or remove managers, transfer profiles or delete them.
-- Each assistant sees only the locations the owner allowed, and every change is logged. Profile edits, attributes, menus and review replies can be undone.
-- Before an assistant can let a high-risk field go live or approve a high-risk change, it has to read the owner a warning and pass along the owner's own words of approval. Those words are kept in the owner's activity log.
+- Every change is logged. Profile edits, attributes, menus and review replies can be undone.
 
 ## How it works
 
@@ -111,7 +111,7 @@ Yes. Agencies and multi-location businesses can let an assistant work on all of 
 
 ### Can my assistant change my business name or address?
 
-Not by default. Those fields are locked because changing them can trigger a re-verification or a suspension. If you want your assistant to handle them anyway, tell it. It will read you a warning first, and it can only open them up with your own words of approval.
+Only if you want it to. Those changes can trigger a re-verification or a suspension, so the assistant warns you first. To stop it entirely, set `update_business_name` and `update_address` to blocked in your AI app's tool settings, or connect read-only.
 
 ### What happens to my data?
 

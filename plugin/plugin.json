@@ -1,21 +1,38 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "neatlisting",
-  "version": "1.0.1",
-  "description": "Manage Google Business Profiles: hours, posts, photos, review replies and performance, with owner rules and approvals.",
-  "author": { "name": "Gronda LLC", "email": "hello@neatlisting.com", "url": "https://neatlisting.com" },
+  "version": "1.0.2",
+  "description": "Manage Google Business Profiles: hours, posts, photos, review replies and performance, with one tool per profile setting.",
+  "author": {
+    "name": "Gronda LLC",
+    "email": "hello@neatlisting.com",
+    "url": "https://neatlisting.com"
+  },
   "homepage": "https://neatlisting.com/setup",
   "license": "MIT",
-  "keywords": ["google business profile", "google my business", "gmb", "local seo", "reviews", "business listings"],
+  "keywords": [
+    "google business profile",
+    "google my business",
+    "gmb",
+    "local seo",
+    "reviews",
+    "business listings"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "NeatListing",
         "shortDescription": "Google Business Profile tools",
-        "longDescription": "Update hours, holiday hours, posts, photos, booking links and menus, reply to reviews, and read up to 18 months of calls, direction requests, website clicks and search keywords for the Google Business Profiles you own or manage. Business name, address, primary category and service area are locked by default. Your rules decide which changes go live or wait for approval. Every change is logged. Undo supported profile edits, attributes, food menus and review replies.",
+        "longDescription": "Update hours, holiday hours, posts, photos, booking links and menus, reply to reviews, and read up to 18 months of calls, direction requests, website clicks and search keywords for the Google Business Profiles you own or manage. Each profile setting has its own tool (regular hours, holiday hours, description, phone, website, business name and more), so you can choose in ChatGPT which ones need your OK. When you connect, you pick which locations NeatListing may manage, or choose read only. High-risk edits like name, address and categories come with a warning first, pace limits keep edits within what Google treats as normal, and every change is logged. Profile edits, attributes, food menus and review replies can be undone.",
         "developerName": "Gronda LLC",
         "category": "Business & Operations",
-        "capabilities": ["Manage profile details", "Publish posts and photos", "Reply to reviews", "View performance", "Owner approval rules"],
+        "capabilities": [
+          "Manage profile details",
+          "Publish posts and photos",
+          "Reply to reviews",
+          "View performance",
+          "Change log and undo"
+        ],
         "websiteURL": "https://neatlisting.com",
         "supportURL": "https://neatlisting.com/setup",
         "privacyPolicyURL": "https://neatlisting.com/privacy",
@@ -67,12 +84,12 @@
           ],
           "negative": [
             {
-              "description": "Business name is locked by default. Explain the restriction and leave the name unchanged; do not loosen the rule to complete the request.",
+              "description": "Keyword-stuffed business names break Google's guidelines and can get a profile suspended. Explain that and don't change the name to keywords; offer to update it only to the real business name.",
               "prompt": "Rename the Downtown location to 'Best Cheap Coffee Near Me Chicago'."
             },
             {
-              "description": "Phone changes need owner approval. Submit the request and explain that it is pending; do not claim the phone changed or approve it on the owner's behalf.",
-              "prompt": "Change the phone number of the Airport location to (312) 555-0199."
+              "description": "NeatListing can't write customer reviews, and fake reviews break Google's policies. Decline and offer to reply to existing reviews instead; don't post anything.",
+              "prompt": "Write five 5-star reviews for the Airport location from different customers."
             },
             {
               "description": "Adding managers and deleting Business Profiles are unsupported. Explain that the owner must do these in Google; do not change managers or delete a profile.",
@@ -84,8 +101,10 @@
         "commerce_description": "NeatListing doesn't sell products or process payments in ChatGPT."
       },
       "publication": {
-        "countries": ["US"],
-        "release_notes": "First release: Google Business Profile hours, posts, photos, review replies, booking links, menus, attributes, performance and search keywords, with owner rules, approvals and undo."
+        "countries": [
+          "US"
+        ],
+        "release_notes": "One tool per profile setting (regular hours, holiday hours, description, phone, website, business name and more), so you choose in ChatGPT which edits need your OK. Simpler connecting: pick locations, then Allow. Warnings before high-risk edits, change log and undo."
       }
     }
   }
